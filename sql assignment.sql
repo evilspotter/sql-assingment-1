@@ -609,4 +609,282 @@ VALUES
 (299,'Vijay_299',45,174500,299),
 (300,'Anjali_300',21,175000,300);
 
+select*from Employees;
+# INNER JOIN
+select emp_name,
+dept_name from Departments inner join Employees on Departments.Dept_id=Employees.Dept_id;
+
+
+select emp_name,
+Dept_name,Location from Departments inner join Employees on Departments.Dept_id=Employees.Dept_id;
+
+select emp_name from Departments inner join Employees on Departments.Dept_id=Employees.Emp_id
+where location='Hyderabad';
+
+select emp_name from Departments inner join Employees on Departments.Dept_id=Employees.Emp_id
+where location='Bangalore';
+
+select Emp_name,salary from departments inner join Employees on departments.Dept_id=Employees.emp_id
+where salary>50000;
+
+
+select emp_name,age,Dept_name from Departments inner join Employees on Departments.dept_id=Employees.dept_id
+where age>30;
+
+select Emp_name,budget from departments inner join Employees on departments.dept_id=Employees.Dept_id;
+
+
+select Dept_name ,count(emp_name)from departments inner join Employees 
+on departments.dept_id=Employees.dept_id group by dept_name;
+
+select sum(salary),location from departments inner join employees on departments.dept_id=employees.dept_id
+group by location;
+
+select dept_name,avg(salary) from departments inner join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+select dept_name,max(salary) from departments inner join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+select dept_name,min(salary) from departments inner join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+select sum(salary),dept_name from departments inner join employees on departments.dept_id=employees.dept_id
+ group by dept_name order by sum(salary) asc;
+ 
+ select location,count(emp_id) from departments inner join employees on departments.dept_id=employees.dept_id
+  group by location order by location asc;
+  
+  select dept_name,salary,dept_name from departments inner join employees on departments.dept_id=employees.dept_id
+  order by salary desc limit 10;
+  
+  #LEFT JOIN
+  
+  
+  SELECT dept_name,emp_name from departments left join employees on departments.dept_id=employees.dept_id;
+
+select dept_name,salary from departments left join employees on departments.dept_id=employees.dept_id;
+
+
+select dept_name,age from departments left join employees on departments.dept_id=employees.dept_id;
+
+
+select dept_name,location,emp_name from departments left join employees on departments.dept_id=employees.dept_id;
+
+
+select dept_name,count(emp_id) from departments left join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+select dept_name,sum(salary) from departments left join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+select dept_name,avg(salary) from departments left join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+select dept_name,max(salary) from departments left join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+select dept_name,min(salary) from departments left join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+select count(emp_id),(location) from departments left join employees on departments.dept_id=employees.dept_id
+group by location;
+
+
+select budget ,dept_name  from departments left join employees on departments.dept_id=employees.dept_id
+ order by budget asc;
+ 
+ 
+
+select  location,sum(salary) from departments left join employees on departments.dept_id=employees.dept_id
+group by location;
+
+
+select dept_name,count(emp_id) from departments left join employees on   departments.dept_id=employees.dept_id
+ group by dept_name order by count(emp_id) asc;
+ 
+ 
+ select emp_name,dept_name from departments left join employees on   departments.dept_id=employees.dept_id
+ order by emp_name asc;
+ 
+ 
+  select dept_name,emp_name from departments left join employees on   departments.dept_id=employees.dept_id
+ order by emp_name asc;
+ 
+ 
+ ## right join
+ 
+ select emp_name,dept_name from departments right join employees on departments.dept_id=employees.dept_id;
+ 
+ 
+  select emp_name,location from departments right join employees on departments.dept_id=employees.dept_id;
+
+ 
+  select emp_name,budget from departments right join employees on departments.dept_id=employees.dept_id;
+
+ 
+ select emp_name ,location from departments right join employees on departments.dept_id=employees.dept_id
+ where location='chennai';
+ 
+ 
+ 
+ select emp_name ,location from departments right join employees on departments.dept_id=employees.dept_id
+ where location='mumbai';
+ 
+ 
+  
+ select emp_name,salary  from departments right join employees on departments.dept_id=employees.dept_id
+ where  salary>75000;
+ 
+ 
+  
+ select emp_name ,age from departments right join employees on departments.dept_id=employees.dept_id
+ where age between 25 and 35;
+ 
+ 
+  
+ select count(emp_id),location from departments right join employees on departments.dept_id=employees.dept_id
+ group by location;
+ 
+ 
+ select avg(salary),location  from departments right join employees on departments.dept_id=employees.dept_id
+ group by location;
+ 
+ 
+  select max(salary),location  from departments right join employees on departments.dept_id=employees.dept_id
+ group by location;
+ 
+ 
+  select min(salary),location  from departments right join employees on departments.dept_id=employees.dept_id
+ group by location;
+ 
+ 
+  select sum(budget),location  from departments right join employees on departments.dept_id=employees.dept_id
+ group by location;
+ 
+ 
+   select emp_name,budget,dept_name   from departments right join employees on departments.dept_id=employees.dept_id
+ order by budget asc;
+ 
+ 
+    select emp_name,salary   from departments right join employees on departments.dept_id=employees.dept_id
+ order by salary asc;
+
+ 
+ 
+select dept_name,count(emp_id)  from departments right join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+##  FULL OUTER JOIN
+
+SELECT emp_name,dept_name from departments left join employees on departments.dept_id=employees.dept_id
+union
+SELECT emp_name,dept_name from departments right join employees on departments.dept_id=employees.dept_id;
+
+
+SELECT dept_name,emp_name from departments left join employees on departments.dept_id=employees.dept_id
+union
+SELECT dept_name,emp_name from departments right join employees on departments.dept_id=employees.dept_id;
+
+
+
+SELECT dept_name,emp_name,location from departments left join employees on departments.dept_id=employees.dept_id
+union
+SELECT dept_name,emp_name,location from departments right join employees on departments.dept_id=employees.dept_id;
+
+
+
+select  dept_name,budget,salary from departments left join employees on departments.dept_id=employees.dept_id union
+select  dept_name,budget,salary from departments right join employees on departments.dept_id=employees.dept_id;
+
+
+SELECT emp_name,dept_name from departments left join employees on departments.dept_id=employees.dept_id
+union
+SELECT emp_name,dept_name from departments right join employees on departments.dept_id=employees.dept_id
+order by dept_name asc;
+
+
+SELECT dept_name,budget from departments left join employees on departments.dept_id=employees.dept_id
+union
+SELECT dept_name,budget from departments right join employees on departments.dept_id=employees.dept_id
+order by budget asc;
+
+
+
+
+SELECT  dept_name,count(emp_id) from departments left join employees on departments.dept_id=employees.dept_id
+union
+SELECT dept_name,count(emp_id) from  departments right join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+
+SELECT  dept_name,count(emp_id) from departments left join employees on departments.dept_id=employees.dept_id group by dept_name
+union
+SELECT dept_name,count(emp_id) from  departments right join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+
+SELECT  dept_name,sum(salary) from departments left join employees on departments.dept_id=employees.dept_id group by dept_name
+union
+SELECT dept_name,sum(salary) from  departments right join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+
+SELECT  dept_name,avg(salary) from departments left join employees on departments.dept_id=employees.dept_id group by dept_name
+union
+SELECT dept_name,avg(salary) from  departments right join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+
+SELECT  dept_name,max(salary) from departments left join employees on departments.dept_id=employees.dept_id group by dept_name
+union
+SELECT dept_name,max(salary) from  departments right join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+
+SELECT  dept_name,min(salary) from departments left join employees on departments.dept_id=employees.dept_id group by dept_name
+union
+SELECT dept_name,min(salary) from  departments right join employees on departments.dept_id=employees.dept_id
+group by dept_name;
+
+
+
+
+SELECT  location,count(emp_id) from departments left join employees on departments.dept_id=employees.dept_id group by location
+union
+SELECT location,count(emp_id) from  departments right join employees on departments.dept_id=employees.dept_id
+group by location;
+
+
+
+SELECT  location,avg(salary) from departments left join employees on departments.dept_id=employees.dept_id group by location
+union
+SELECT location,avg(salary) from  departments right join employees on departments.dept_id=employees.dept_id
+group by location;
+
+
+
+SELECT  location,sum(salary) from departments left join employees on departments.dept_id=employees.dept_id group by location
+union
+SELECT location,sum(salary) from  departments right join employees on departments.dept_id=employees.dept_id
+group by location;
+
+
+
+
+SELECT  dept_name,emp_name from departments left join employees on departments.dept_id=employees.dept_id
+union
+SELECT dept_name,emp_name from  departments right join employees on departments.dept_id=employees.dept_id
+order by dept_name asc;
 
